@@ -18,19 +18,19 @@ public class PatientController {
         patients.add(new Patient("Colonel","Sanders"));
     }
 
-    @RequestMapping(value = "/patients", method = RequestMethod.GET)
+    @RequestMapping(value = "/api/v1/patients", method = RequestMethod.GET)
     public Vector getPatients() {
         return patients; 
     }
 
-    @RequestMapping(value = "/patients", method = RequestMethod.POST)
+    @RequestMapping(value = "/api/v1/patients", method = RequestMethod.POST)
     public Patient postPatients(@RequestParam(value="firstName") String firstName, @RequestParam(value="lastName") String lastName) {
         Patient patient = new Patient(firstName,lastName);
         patients.add(patient);
         return patient;
     }
 
-    @RequestMapping(value = "/patients/{id}", method = RequestMethod.GET)
+    @RequestMapping(value = "/api/v1/patients/{id}", method = RequestMethod.GET)
     public Patient getPatient(@PathVariable int id) {
         Patient patient;
         try {
@@ -41,7 +41,7 @@ public class PatientController {
         return patient;
     }
 
-    @RequestMapping(value = "/patients/{id}", method = RequestMethod.PUT)
+    @RequestMapping(value = "/api/v1/patients/{id}", method = RequestMethod.PUT)
     public Patient putPatient(@PathVariable int id, @RequestParam(value="firstName") String firstName, @RequestParam(value="lastName") String lastName) {
         Patient patient;
         try {
@@ -54,7 +54,7 @@ public class PatientController {
         return patient;
     }
 
-    @RequestMapping(value = "/patients/{id}", method = RequestMethod.DELETE)
+    @RequestMapping(value = "/api/v1/patients/{id}", method = RequestMethod.DELETE)
     public Patient deletePatient(@PathVariable int id) {
         Patient patient;
         try {
